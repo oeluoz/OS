@@ -1,3 +1,4 @@
+
 shell.o : shell.c
 	gcc -c -o shell.o shell.c -w -I ./shell.h
 shell.bin : shell.o
@@ -5,5 +6,6 @@ shell.bin : shell.o
 all : shell.bin
 	@echo "compile done"
 clean : 
-	rm *.o
+	rm *.o shell
+
 	

@@ -7,6 +7,7 @@
 #include <pwd.h>
 #include <readline/readline.h>
 #include <readline/history.h>
+#include <fcntl.h>
 #include <dirent.h> 
 #include <string.h>
 #include <stdlib.h>
@@ -21,6 +22,16 @@
 #define SYSTEM_EXE 1
 #define NOT_SYSTEM_EXE 0
 
+#define REDIRECTION_IN 1
+#define REDIRECTION_OUT 2
+#define REDIRECTION_OUT_ADD 3
+#define REDIRECTION_PIPE 4
+#define REDIRECTION_NONE 0
+
+#define STDIN 0
+#define STDOUT 1 
+#define STDERR 2
+
 
 char ** getParameter(char* args);
 int shell();
@@ -29,4 +40,7 @@ int cd(char** args);
 char * getUserName();
 int systemExe(char** args);
 int whichOperation(char**args);
+int redirectionType(char** args);
+char* getRedirectionFile(char** args, int type);
+char* cmdPreprocess(char* cmd);
 #endif // 
